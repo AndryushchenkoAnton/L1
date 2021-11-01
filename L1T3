@@ -1,0 +1,28 @@
+#include <iostream>
+using namespace std;
+
+
+
+
+char* reverseChar(char* a, int s)
+{
+    while (*a)
+    {
+        if (*a == s) return a;
+        a++;
+    }
+    return 0;
+}
+
+int main()
+{
+    char s[] = "www.some_adress.and_something_else.com";
+    char* standard_result = strrchr(s,'.');
+    char* my_resalt = reverseChar(s,'.');
+    printf("Initial string:%s \nStandard: %s\nMy version :%s\n ",s, standard_result,my_resalt);
+
+
+    return 0;
+
+     
+}
