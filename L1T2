@@ -41,7 +41,7 @@ int** makeArray2D(int* array1D,int Rows,int Cols)
 {
    
     int** arr2D = new int* [Rows];
-    for (int i =0;i<Rows;++i)                              // У меня так и не получилось сделать какждый 1й элемент строки суммой всех предыдущих
+    for (int i =0;i<Rows;++i)                             
                                                                   
 
     {
