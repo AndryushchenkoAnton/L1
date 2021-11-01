@@ -39,7 +39,7 @@ void FreeArray2D(int** arr,int Rows)
 }
 int** makeArray2D(int* array1D,int Rows,int Cols)
 {
-    int Cont=0;
+   
     int** arr2D = new int* [Rows];
     for (int i =0;i<Rows;++i)                              // У меня так и не получилось сделать какждый 1й элемент строки суммой всех предыдущих
                                                                   
@@ -49,9 +49,24 @@ int** makeArray2D(int* array1D,int Rows,int Cols)
     }
     for (int b =0;b<Rows;++b) 
     {
+        
         for(int i=0;i<Cols;++i)
         {
-            arr2D[b][i] = array1D[b * Cols + i];
+           
+            if (i == 0) 
+            { 
+                int null=0;
+                for(int k =1;k<5;k++)
+                {
+                   null = null + array1D[b * Cols + k];
+                }
+                arr2D[b][i] = null;
+            }
+            else 
+            
+            {
+             arr2D[b][i] = array1D[b * Cols + i];
+            }
             
             
         }
@@ -61,7 +76,7 @@ int** makeArray2D(int* array1D,int Rows,int Cols)
 }
 int main()
 {
-    int l = 0;
+   
      int LEN = 25;
      int rows = 5;
      int cols = 5;
