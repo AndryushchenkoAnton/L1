@@ -1,0 +1,80 @@
+#include <iostream>
+using namespace std;
+void InitializeArray(int* array,int L) 
+{
+    for(int i =0;i<L;i++)
+    {
+        array[i] = i * sin((3.14*i)/25);
+    }
+}
+void PrintArray1D( int* arr,int L)
+{
+    for (int i=0;i<L;i++) 
+    {
+        cout << arr[i] << "\t";
+    }
+}
+void Print2D(int** arr,int Rows,int Cols)
+{
+    for (int i =0;i<Rows;i++) 
+    {
+        for(int j=0;j<Cols;j++)
+        {
+            cout << arr[i][j] << "\t";
+        }
+        cout << endl;
+    }
+}
+void FreeArray1D(int* arr) 
+{
+    delete [] arr;
+}
+void FreeArray2D(int** arr,int Rows) 
+{
+    for (int i=0;i<Rows;++i) 
+    {
+        delete[]  arr[i];
+    }
+    delete []  arr;
+}
+int** makeArray2D(int* array1D,int Rows,int Cols)
+{
+    int Cont=0;
+    int** arr2D = new int* [Rows];
+    for (int i =0;i<Rows;++i)                              // У меня так и не получилось сделать какждый 1й элемент строки суммой всех предыдущих
+                                                                  
+
+    {
+        arr2D[i] = new int[Cols];
+    }
+    for (int b =0;b<Rows;++b) 
+    {
+        for(int i=0;i<Cols;++i)
+        {
+            arr2D[b][i] = array1D[b * Cols + i];
+            
+            
+        }
+    }
+
+    return arr2D;
+}
+int main()
+{
+    int l = 0;
+     int LEN = 25;
+     int rows = 5;
+     int cols = 5;
+    int* arr = new int [LEN];
+    InitializeArray(arr,LEN);
+    PrintArray1D(arr,LEN);
+    int** arr2D = makeArray2D(arr,rows,cols);
+    Print2D(arr2D,rows,cols);
+    FreeArray1D(arr);
+    FreeArray2D(arr2D,rows);
+
+    
+    return 0;
+}
+
+// Андрющенко Антон К.ИВТ-2
